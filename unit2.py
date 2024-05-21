@@ -3,4 +3,3 @@ print('Pull from remote to local')
 
 import cv2
 import numpy
-import matplotlib.pyplot as plt
