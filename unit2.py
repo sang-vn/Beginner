@@ -1,1 +1,1 @@
-print('PyQt5_Tutorial')
+print('Master')
