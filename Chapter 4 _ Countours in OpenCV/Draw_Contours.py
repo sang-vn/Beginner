@@ -3,7 +3,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 img = cv2.imread('../Data_image_from_opencv/contour1.jpg')
-img1 =img.copy()
+img1 = img.copy()
+img2 = img.copy()
 
 img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 ret1, th1 = cv2.threshold(img_gray,0,255,cv2.THRESH_BINARY)
