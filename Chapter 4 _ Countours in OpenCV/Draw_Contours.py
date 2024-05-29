@@ -24,8 +24,11 @@ print('Area: ' + str(S))
 
 # draw Contours
 img = cv2.drawContours(img, [cnt], -1, (0,0,255), 3)
-
 # [cnt]: de nhung duong contours lien tuc
+
+# ConvexHull tuong tu nhu Approximation
+hull = cv2.convexHull(cnt)
+hull_image = cv2.drawContours(img2,[hull], -1, (255,0,0), 3)
 
 # Approximation
 epsilon = 0.05*P
@@ -35,6 +38,6 @@ approx_image = cv2.drawContours(img1, [approx], -1,(0,255,0),5)
 cv2.imshow('Image', img)
 cv2.imshow('Th2', th2)
 cv2.imshow('Approx', approx_image)
-# cv2.imshow('Image4', thresh)
+cv2.imshow('Hull', hull_image)
 cv2.waitKey()
 cv2.destroyAllWindows()
