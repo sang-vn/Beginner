@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 
-img = cv2.imread('../Data_image_from_opencv/pic4.png')
+img = cv2.imread('../Data_image_from_opencv/contour1.jpg')
 
 img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 ret1, th1 = cv2.threshold(img_gray,0,255,cv2.THRESH_BINARY)
@@ -23,9 +23,13 @@ print('Area: ' + str(S))
 # draw Contours
 img = cv2.drawContours(img, cnt, -1, (0,0,255), 3)
 
+# Approximation
+epsilon = 0.1*P
+approx = cv2.approxPolyDP(cnt, epsilon, True)
+
 cv2.imshow('Image', img)
-cv2.imshow('Image2', th2)
-cv2.imshow('Image3', img_gray)
+cv2.imshow('Th2', th2)
+cv2.imshow('Approx', approx)
 # cv2.imshow('Image4', thresh)
 cv2.waitKey()
 cv2.destroyAllWindows()
